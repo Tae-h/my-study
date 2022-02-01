@@ -16,9 +16,10 @@ public class HashProblems {
         String[] participants = {"mislav", "stanko", "mislav", "ana"};
         String[] completions = {"stanko", "ana", "mislav"};
 
-        System.out.println("answer:: " + completions[3]);
+        //System.out.println("answer:: " + completions[3]);
 
-        String aa = notFinishedPlayer(participants, completions);
+        String remains = notFinishedPlayer(participants, completions);
+        System.out.println(remains);
     }
 
     /*  완주하지 못한선수 */
