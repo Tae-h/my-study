@@ -2,12 +2,11 @@ package com.taehoon.codingtest.programers.solutions;
 
 
 import java.util.Arrays;
-import java.util.Objects;
 
 /**
  * 해시 문제
  */
-public class HashProblems {
+public class HashSolutions {
 
     public static void main(String[] args) {
 

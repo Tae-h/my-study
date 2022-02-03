@@ -3,7 +3,7 @@ package com.taehoon.codingtest.programers.solutions;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StackQue {
+public class StackQueSolutions {
 
     public static void main(String[] args) {
 
