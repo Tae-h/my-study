@@ -19,6 +19,20 @@ public class HashSolutions {
 
         String remains = notFinishedPlayer(participants, completions);
         System.out.println(remains);
+
+        /* 전화번호 목록 예시
+            ["119", "97674223", "1195524421"]	false
+            ["123","456","789"]	true
+            ["12","123","1235","567","88"]	false
+         */
+        //String[] phoneBook = {"119", "97674223", "1195524421"};
+        //String[] phoneBook = {"123","456","789"};
+        String[] phoneBook = {"12","123","1235","567","88"};
+        phoneNumberList(phoneBook);
+
+
+
+
     }
 
     /*  완주하지 못한선수 */
@@ -37,6 +51,25 @@ public class HashSolutions {
         }
 
         answer = participants[i];
+        return answer;
+    }
+
+    /* 전화번호 목록 */
+    public static boolean phoneNumberList(String[] phone_book) {
+        boolean answer = true;
+
+        String phoneNum = null;
+        Arrays.sort(phone_book);
+        for ( int i = 0; i < phone_book.length - 1; i ++ ) {
+
+            phoneNum = phone_book[i];
+            if ( phone_book[ i + 1 ].startsWith(phoneNum) ) {
+                answer = false;
+                break;
+            }
+
+        }
+
         return answer;
     }
 
