@@ -82,12 +82,12 @@ public class StackQueSolutions {
         // 기존 배열의 index [location] 위치에 있는 숫자가 출력 되는 순서
         while ( !pq.isEmpty() ) {
             //pq.poll() 맨 앞의 데이터 한개씩 뺌
-
+            System.out.println(pq);
             for ( int i = 0; i < priorities.length; i++ ) {
                 System.out.println(priorities[i] + ", " + pq.peek() );
                 if ( priorities[i] == pq.peek() ) {
                     answer++;
-                    pq.poll();
+                    pq.poll(); // 공통 부분 제거
                     if ( location == i ) {
                         System.out.println(answer);
                         return answer;
