@@ -43,7 +43,7 @@ public class HashSolutions {
                 {"green_turban", "headgear"}
         };
 
-        camouflage(clothes);
+        //camouflage(clothes);
     }
 
     /*  완주하지 못한선수 */
