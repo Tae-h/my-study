@@ -15,7 +15,16 @@ public class StackQueSolutions {
         //int location = 2; // return 1
         int[] priorities = {1, 1, 9, 1, 1, 1};
         int location = 0; //return
-        printerSolution(priorities, location);
+        //printerSolution(priorities, location);
+
+
+        int bridgeLength = 2;
+        int weight = 10;
+        int[] truckWeights = {7,4,5,6};
+
+        bridgeTruck(bridgeLength, weight, truckWeights);
+
+
 
     }
 
@@ -76,9 +85,6 @@ public class StackQueSolutions {
             pq.offer(item);
         }
 
-        System.out.println(Arrays.toString(priorities));
-        System.out.println(pq);
-        System.out.println("location: " + location);
         // 기존 배열의 index [location] 위치에 있는 숫자가 출력 되는 순서
         while ( !pq.isEmpty() ) {
             //pq.poll() 맨 앞의 데이터 한개씩 뺌
@@ -100,6 +106,67 @@ public class StackQueSolutions {
 
         return answer;
     }
+
+    /* 다리를 지나는 트럭 */
+    public static int bridgeTruck(int bridgeLength, int weight, int[] truck_weights) {
+
+        Queue<Integer> bridge = new LinkedList<>();
+
+        int time = 0; // 걸리는 시간
+        int totalWeight = 0; // 다리위의 토탈 무게
+
+        for ( int truck : truck_weights ) {
+
+            // 다리를 건널때 까지 while
+            while (true) {
+
+                if ( bridge.isEmpty() ) {
+                    bridge.add(truck);
+                    totalWeight += truck;
+                    time++;
+                    break;
+                } else if ( bridge.size() == bridgeLength ) { // 다리 길이랑 다리위의 개수랑 같으면 -->
+                    totalWeight -= bridge.poll();
+                } else {
+
+                    if ( totalWeight + truck <= weight ) {
+                        bridge.add(truck);
+                        totalWeight += truck;
+                        time++;
+                        break;
+                    } else {
+                        bridge.add(0); // 다 건널수 있게 0으로 채워줌
+                        time++;
+                    }
+                }
+            }
+
+        }
+
+
+        return time + bridgeLength;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
