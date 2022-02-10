@@ -35,16 +35,26 @@ public class SortSolutions {
     public static String biggestNumber(int[] numbers) {
         String answer = "";
 
-        Integer[] arr = new Integer[numbers.length];
+        String[] arr = new String[numbers.length];
 
         for ( int i = 0; i < numbers.length; i++ ) {
-            arr[i] = numbers[i];
+            arr[i] = String.valueOf(numbers[i]);
         }
-        Arrays.sort(arr, Collections.reverseOrder());
 
-        
+        Arrays.sort(arr, new Comparator<String>() {
+            @Override
+            public int compare(String a, String b) {
+                return (b+a).compareTo(a+b); // true 면 a값 리턴
+            }
+        });
 
+        if ( "0".equals(arr[0]) ) {
+            return "0";
+        }
 
+        for (String a : arr) {
+            answer += a;
+        }
 
         return answer;
     }
