@@ -12,7 +12,10 @@ public class SortSolutions {
 
         //kthNumber(array, commands);
         int [] numbers = {6, 10, 2}; // return "6210"
-        biggestNumber(numbers);
+        //biggestNumber(numbers);
+
+        int[] citations = {3, 0, 6, 1, 5}; // return 3
+        getHIndex(citations);
     }
 
     /* k번째 수 */
@@ -58,5 +61,44 @@ public class SortSolutions {
 
         return answer;
     }
+
+    /**
+     * H-index Solution 이게 무슨말이여????
+     * n편 중, h번 이상 인용된 논문이 h편 이상이고 나머지 논문이 h번 이하 인용되었다면 h의 최댓값이 이 과학자의 H-Index 입니다.
+     * @param citations 어떤 과학자가 발표한 논문의 인용 횟수를 담은 배열 citations
+     * @return h-index
+     */
+    public static int getHIndex(int[] citations) {
+        int answer = 0;
+        Arrays.sort(citations);
+
+        for ( int i = 0; i < citations.length; i++  ) {
+            int citation = citations[i]; // 논문
+            int H = citations.length - i;
+
+            System.out.println(H);
+            if (citation >= H) {
+                System.out.println(citation + ", " + H);
+                answer = H;
+                break;
+            }
+        }
+
+        return answer;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
