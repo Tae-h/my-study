@@ -22,7 +22,11 @@ public class StackQueSolutions {
         int weight = 10;
         int[] truckWeights = {7,4,5,6};
 
-        bridgeTruck(bridgeLength, weight, truckWeights);
+        //bridgeTruck(bridgeLength, weight, truckWeights);
+
+
+        int[] prices = {1, 2, 3, 2, 3}; // return [4, 3, 1, 1, 0]
+        stockPrice(prices);
 
 
 
@@ -147,6 +151,36 @@ public class StackQueSolutions {
         return time + bridgeLength;
     }
 
+
+    public static int[] stockPrice(int[] prices) {
+        int[] answer = new int[prices.length];
+
+        Queue<Integer> queue = new LinkedList<>();
+        for ( int price : prices ) {
+            queue.offer(price);
+        }
+        System.out.println(queue);
+        int index = 0;
+        while ( !queue.isEmpty() ) {
+            int price = queue.poll();
+            int second = 0;
+            System.out.println(price+ ", " + queue.toString());
+            for ( int q : queue ) {
+                if ( q >= price ) {
+                    second++;
+                } else {
+                    second++;
+                    break;
+                }
+            }
+            answer[index] = second;
+            index++;
+        }
+
+
+        System.out.println(Arrays.toString(answer));
+        return answer;
+    }
 
 
 
