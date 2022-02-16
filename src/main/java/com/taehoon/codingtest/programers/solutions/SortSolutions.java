@@ -51,6 +51,7 @@ public class SortSolutions {
             }
         });
 
+        System.out.println(Arrays.toString(arr));
         if ( "0".equals(arr[0]) ) {
             return "0";
         }
