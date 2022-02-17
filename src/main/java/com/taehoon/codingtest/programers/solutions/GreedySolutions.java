@@ -41,7 +41,7 @@ public class GreedySolutions {
             } else {
 
                 if ( Arrays.stream(reserve).anyMatch(item -> {
-                    if (item == num + 1 || item == num - 1 ) {
+                    if (item == num + 1) {
                         for ( int j = 0; j < reserve.length; j++ ) {
                             if ( item == reserve[j] ) {
                                 reserve[j] = 0;
@@ -57,6 +57,7 @@ public class GreedySolutions {
             }
 
         }
+        System.out.println(tmpList.toString());
         answer = tmpList.size();
         return answer;
     }
