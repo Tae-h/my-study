@@ -20,9 +20,10 @@ public class GreedySolutions {
         int n = 3;
         int[] lost = {3};
         int[] reserve = { 3 };
-        gymSuit(n, lost, reserve);
+        //gymSuit(n, lost, reserve);
 
-
+        String name = "JAN"; // return 56
+        joyStick(name);
 
     }
 
@@ -55,6 +56,40 @@ public class GreedySolutions {
                 }
             }
         }
+        return answer;
+    }
+
+    /* 조이스틱 */
+    public static int joyStick(String name) {
+        int answer = 0;
+        System.out.println(name);
+        int lrMove = name.length() - 1; // 좌우 이동 최대 횟수
+        /* N이 기준임 */
+        for ( int i = 0; i < name.length(); i++ ) {
+            int strLength = name.length();
+            /* 둘 중에 최솟값 으로  */
+            answer += Math.min('Z' - name.charAt(i) + 1, name.charAt(i) - 'A');
+
+            // 좌우 횟수
+            int idxA = i + 1; // <-- 'A' 일 경우 인덱스
+            while ( idxA < strLength && name.charAt(idxA) == 'A' ) {
+                idxA++;
+            }
+
+            lrMove = Math.min(lrMove, i + (strLength - idxA) + Math.min(i, strLength - idxA) ); //2 , 4-2
+            /*
+            * strLength - idxA : 총 길이에서 현재 바로 다음에 연속된 A가 지나고 남은 문자 갯수
+            * i : 현재까지의 이동 횟수
+            * i + len - next + i : 재까지 왔다가 다시 돌아가서 남은 거 까지 가는 이동 횟수
+            * Math.min(i, strLength - idxA) :
+            * strLength - idxA 가 i 보다 큰 경우 에는 굳이 다시 도아갈 필요 없이 남은 이동해야 하는 횟수만 더해주면 된다.
+            * */
+
+
+        }
+        System.out.println("move: " + lrMove);
+        answer += lrMove;
+        System.out.println("result: " + answer);
         return answer;
     }
 
