@@ -23,8 +23,10 @@ public class GreedySolutions {
         //gymSuit(n, lost, reserve);
 
         String name = "JBBAAB"; // return 56
-        joyStick(name);
+       // joyStick(name);
 
+        String number = "1231234";
+        makeBigNumber(number, 3);
     }
 
 
@@ -93,6 +95,29 @@ public class GreedySolutions {
         answer += lrMove;
         System.out.println("result: " + answer);
         return answer;
+    }
+
+    /* 큰 수 만들기 */
+    public static String makeBigNumber(String number, int k) {
+        StringBuilder answer = new StringBuilder();
+
+        int idx = 0;
+        char num;
+
+        /* number.length() - k 자리수 만큼 돌림 */
+        for ( int i = 0; i < number.length() - k; i++ ) { // number.length - k 자릿수 만큼 만들어야 함
+            num = '0';
+            /* 실질적 for 문 */
+            for ( int j = idx; j <= k + i; j++ ) {
+                if ( num < number.charAt(j) ) {
+                    num = number.charAt(j);
+                    idx = j + 1;
+                }
+            }
+            answer.append(num);
+        }
+
+        return answer.toString();
     }
 
 }
