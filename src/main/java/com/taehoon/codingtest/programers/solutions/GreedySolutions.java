@@ -26,7 +26,12 @@ public class GreedySolutions {
        // joyStick(name);
 
         String number = "1231234";
-        makeBigNumber(number, 3);
+        //makeBigNumber(number, 3);
+
+        //int[] people = {50, 60, 50, 40};
+        int[] people = {70, 80, 50};
+
+        lifeBoat(people,100); // return 3;
     }
 
 
@@ -118,6 +123,29 @@ public class GreedySolutions {
         }
 
         return answer.toString();
+    }
+
+    /* 구명보트 */
+    public static int lifeBoat(int[] people, int limit) {
+        System.out.println(Arrays.toString(people));
+        int boat = 0; // 보트 갯수
+        // 50, 60, 50, 40 아.. 젠장.. 문제좀 똑바로 읽을걸... 2명이었어....
+
+        int j = 0;
+        Arrays.sort(people);
+        for ( int i = people.length - 1;  j <= i; i-- ) {
+
+            if ( (people[i] + people[j]) > limit ) { // 가장 큰 수 + 가장 작은수 점 점 격차 줄임
+                boat++; // i 순번만 태워 보냄
+            } else {
+                boat++;
+                j++;
+            }
+        }
+
+        System.out.println("boat: " + boat);
+
+        return boat;
     }
 
 }
