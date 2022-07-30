@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+
+    let grade = [3,2,1,2]; // 0 ,1, 2, 1
+    // return 1,2,4,2
+
+    solution(grade);
+
+    function solution(grade) {
+
+
+        let n = grade.length;
+        let answer = new Array(n).fill(1); // 1로 먼저 채움
+
+        console.log('f ', grade);
+        for ( let i = 0; i < n; i++ ) { // 0, 1, 2, 3
+
+            for ( let j = 0; j < n; j++ ) { // 0, 1, 2, 3
+                console.log(grade[j] , '-',grade[i])
+                if (grade[j] - grade[i] > 0) {
+                    answer[i]++;
+                }
+            }
+            console.log(' , ');
+        }
+
+        console.log(answer);
+
+        return answer;
+    }
+
+    /*let n = 5; // 122111
+    recursive(n);
+
+    function recursive(n) {
+        if (n === 1) return "1"; // n이 1이면 1 리턴
+        return solution1(recursive(n - 1));
+    }
+
+    function solution1(a) {
+        let arr1 = [];
+        let arr2 = [];
+
+        while (a.length !== 0) {
+            if (a[0] === a[1]) {
+                arr2.push(a[0]);
+                a = a.replace(a[0], "");
+            } else {
+                arr2.push(a[0]);
+                a = a.replace(a[0], "");
+                arr1.push(arr2);
+                arr2 = [];
+            }
+        }
+
+        let answer = "";
+        arr1.map((item) => {
+            answer += `${item[0]}${item.length}`;
+        })
+
+
+        return answer;
+    }*/
+
+
+
+
+</script>
+</body>
+</html>

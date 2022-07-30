@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+
+    let companies = ["A fabded 2", "B cebdfa 2", "C ecfadb 2"];
+    let applicants = ["a BAC 1", "b BAC 3", "c BCA 2", "d ABC 3", "e BCA 3", "f ABC 2"];
+
+    // result = ["A_bf", "B_ce", "C_d"];
+
+    function solution(companies, applicants) {
+        let answer = [];
+
+        let supportStatus = {}; // 지원현황
+        let companyInfo = [];
+        for ( let i = 0; i < companies.length; i++) {
+            let comArr = companies[i].split(" ");
+            companyInfo.push(comArr);
+
+
+        }
+
+        console.log(companyInfo);
+
+        for ( let i = 0; i < applicants.length; i++) {
+            let applicantObj = applicants[i].split(" ");
+            console.log(applicantObj);
+        }
+
+
+
+
+        return answer;
+    }
+
+
+
+    solution(companies, applicants);
+</script>
+</body>
+</html>
